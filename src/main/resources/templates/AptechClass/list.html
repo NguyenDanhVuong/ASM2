@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Class list</title>
+</head>
+<body>
+    <h1>Class List</h1>
+    <ul th:each="classes: ${aptechClass}">
+        <li><span th:text="${classes.name}"></span><button><a th:href="@{'/class/' + ${classes.id}} ">Detail</a></button></li>
+    </ul>
+</body>
+</html>

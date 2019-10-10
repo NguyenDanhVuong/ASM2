@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Detail</title>
+</head>
+<body>
+<h1>Class Detail</h1>
+<div>
+    <h2>Class: <span th:text="${aptechClass.name}"></span></h2>
+</div>
+<form th:action="@{'/class/' + ${aptechClass.id}}" method="post">
+    <div>
+        <th:block th:each="student : ${students}">
+            <div>
+                <input th:disabled="${aptechClass.getStudents().contains(student)}" type="checkbox" name="student" th:value="${student.id}"/>
+                <label th:text="${student.email}"></label>
+            </div>
+        </th:block>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+</body>
+</html>
